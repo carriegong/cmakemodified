@@ -6,7 +6,8 @@
 
 set(SID_LIB_DIR ${ZEPHYR_BASE}/../sidewalk/lib/lora_fsk)
 
-set(LIB_GCC ~/project/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi/7.3.1/libgcc.a)
+set(GCC_LIB_DIR ~/project/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi)
+find_library(LIB_GCC NAMES gcc libgcc.a HINTS ${GCC_LIB_DIR}/* REQUIRED)
 
 set(SID_LIBS
 	${SID_LIB_DIR}/libsid_api.a
